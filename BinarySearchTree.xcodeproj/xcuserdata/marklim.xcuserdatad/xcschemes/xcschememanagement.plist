@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>BinarySearchTree.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>BinaryTreeIterative.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>EE029E562F185927005B3DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EE029E632F185C35005B3DCA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEA10CA12F278FDC00BBC070</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EEE22FDA2F174BB700F4EB56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
