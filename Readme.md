@@ -43,14 +43,14 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
     }
 
 
-    void deleteNodeIterative(struct node **root, int key) {
+    void deleteNode(struct node **root, int key) {
 
         struct node *curr = *root;
-        struct node *parent = NULL;     // root of the main tree or subtree
+        struct node *parentNode = NULL;     // root of the main tree or subtree
 
         // Find the node to be deleted for the given key by moving down the tree.
         while (curr != NULL && curr->key != key) {
-            parent = curr;
+            parentNode = curr;
             if (key < curr->key) {
                 curr = curr->left;
             }
@@ -78,17 +78,17 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
             }
 
             // Check if the node to be deleted is the root of the tree.
-            if (parent == NULL) {
+            if (parentNode == NULL) {
                 free(curr);
                 *root = newNode;
                 return;
             }
 
-            if (curr == parent->left) {
-                parent->left = newNode;
+            if (curr == parentNode->left) {
+                parentNode->left = newNode;
             }
             else {
-                parent->right = newNode;
+                parentNode->right = newNode;
             }
             free(curr);
         }
@@ -104,8 +104,8 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
                 successor = successor->left;
             }
 
-            // Check if the parent of the successor is the NULL or not.
-            // If it isn't, then make the left child of its parent equal to the
+            // Check if the parent node of the successor is the NULL or not.
+            // If it isn't, then make the left child of its parent node equal to the
             // successor's right child. Otherwise, make the right child of the node
             // to be deleted equal to the right child of the successor.
             if (successorParent != NULL) {
