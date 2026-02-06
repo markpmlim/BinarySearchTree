@@ -15,6 +15,7 @@ The conditions above allow for fast lookups (searches), addition and removal of 
 
 In order to get the algorithm of this 64-bit assembly language  correct (and bug free), a C program was written and debugged. Given below are the C implementations of the **insertNode** and **deleteNode**.
 
+```C
     void insertNode(struct node **root, struct node *p)
     {
         struct node *currNode, *parentNode;
@@ -40,6 +41,7 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
             parentNode->right = p;
         }  
     }
+
 
     void deleteNodeIterative(struct node **root, int key) {
 
@@ -122,7 +124,7 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
             free(successor);
         }
     }
-
+```
 
 **Requirements:**
 
