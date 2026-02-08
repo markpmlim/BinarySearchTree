@@ -58,6 +58,7 @@ _main:
     callq   _printTree
 
 # Test deletion
+
     leaq    rootNode(%rip), %rdi
     movq    $7, %rsi
     callq   _deleteNode
@@ -254,21 +255,19 @@ exitWhile:
 # Check if there is no or one child
 # currNode->left == NULL || currNode->right == NULL
     cmpq    $NULL, left(%rbx)       # is currNode->left == NULL?
-    je      .noOrOneChild           # yes
+    je      .noLeftChild            # yes
 # On fall thru, there is a left child.
     cmpq    $NULL, right(%rbx)      # is currNode->right == NULL?
     jne     .twoChildren            # currNode->left != NULL && currNode->right != NULL
+    jmp     .noRightChild
 
-# On fall thru, there is a left child but no right child
-.noOrOneChild:
-    cmpq    $NULL, left(%rbx)       # is currNode->left == NULL?
-    jne     .noRightChild
 # case 2: no left child
+.noLeftChild:
     movq    right(%rbx), %r13       # newNode = currNode->right
     jmp     .isParentNull
 
-.noRightChild:
 # case 3: no right child
+.noRightChild:
     movq    left(%rbx), %r13       # newNode = currNode->left
 
 .isParentNull:
@@ -281,7 +280,7 @@ exitWhile:
     jmp     .exitDelete
 
 2:
-    cmpq    left(%r12), %rbx        # is curr == parentNode->left
+    cmpq    left(%r12), %rbx        # is curr == parentNode->left?
     jne     3f
     movq    %r13, left(%r12)        # parentNode->left = newNode
     jmp     .freeNode
@@ -294,8 +293,8 @@ exitWhile:
     callq   _free
     jmp     .exitDelete
 
-.twoChildren:
 # case 4: Two children
+.twoChildren:
     movq    $NULL, %r14             # successorParent = NULL;
     movq    right(%rbx), %r15       # successor = currNode->right;
 #problem
@@ -312,9 +311,10 @@ exitWhile:
     movq    right(%r15), %rcx       # successorParent->left = successor->right
     movq    %rcx, left(%r14)
     jmp     2f
-1:
+
 # Special case: main root node is deleted; this is the only node that does not
 # have a parent node.
+1:
     movq    right(%r15), %rcx
     movq    %rcx, right(%rbx)       # currNode->right = successor->right
 
@@ -323,8 +323,6 @@ exitWhile:
     movq    %rdx, key(%rbx)         # currNode->key = successor->key
     movq    %r15, %rdi
     callq   _free
-#    movq    %rbp, %rax              # return root
-#    jmp     .exitDelete
 
 .exitDelete:
     movq    (%rsp), %rbp
