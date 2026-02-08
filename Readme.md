@@ -42,7 +42,7 @@ In order to get the algorithm of this 64-bit assembly language  correct (and bug
         }  
     }
 
-
+    // Reference: weblink 2
     void deleteNode(struct node **root, int key) {
 
         struct node *curr = *root;
