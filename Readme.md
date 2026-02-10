@@ -13,7 +13,7 @@ The conditions above allow for fast lookups (searches), addition and removal of 
 
 ### Details
 
-In order to get the algorithm of this 64-bit assembly language  correct (and bug free), a C program was written and debugged. Given below are the C implementations of the **insertNode** and **deleteNode**.
+In order to get the algorithm of this 64-bit assembly language  correct (and bug free), a C program was written and debugged. Given below are the C implementations of the **insertNode** and **deleteNode** functions.
 
 ```C
     void insertNode(struct node **root, struct node *p)
