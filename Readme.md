@@ -134,7 +134,7 @@ Can run on any 64-bit Intel macOS.
 
 **Running on Linux**
 
-This demo can be compiled and run under a command line prompt operating under 64-bit Intel-based Linux/Unix with a little modification.
+This demo can be compiled and run under a command line prompt operating under 64-bit Intel-based Linux with a little modification.
 
 Edit the source file (BinarySearchTree.s) by removing underscores from the function names.
 
